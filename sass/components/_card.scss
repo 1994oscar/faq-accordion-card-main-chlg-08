@@ -4,8 +4,11 @@
     height: auto;
     background-color: $light-grayish-blue;
     border-radius: 3rem;
+    box-shadow: 2px 10px 16px 0px rgba(0,0,0,0.42);
+    -webkit-box-shadow: 2px 10px 16px 0px rgba(0,0,0,0.42);
+    -moz-box-shadow: 2px 10px 16px 0px rgba(0,0,0,0.42);
 
-    @media screen and (min-width: 1280px){
+    @media screen and (min-width: 1024px){
        display: flex;
        justify-content: center;
        align-items: center;
@@ -27,7 +30,7 @@
         align-content: center;
         align-items: center;
 
-        @media screen and (min-width: 1280px){
+        @media screen and (min-width: 1024px){
             display: flex;
             flex-direction: column;
             align-content: center;
@@ -41,7 +44,7 @@
               width: 20rem;
               height: auto;
 
-              @media screen and (min-width: 1280px){
+              @media screen and (min-width: 1024px){
                 overflow: hidden;
                 content: url('../../images/illustration-box-desktop.svg');
                 margin-right: 52rem;
@@ -54,14 +57,14 @@
             width: 20rem;
             height: auto;
 
-            @media screen and (min-width: 1280px){
+            @media screen and (min-width: 1024px){
                 display: none;
             }
         }
     }
 
     &-body{
-        @media screen and (min-width: 1280px){
+        @media screen and (min-width: 1024px){
            width: 33rem;   
            display: flex;
            flex-direction: column; 
@@ -72,7 +75,7 @@
             text-align: center;
             font-size: 3rem;
 
-            @media screen and (min-width: 1280px){
+            @media screen and (min-width: 1024px){
                text-align: left;    
             }
         }
@@ -80,7 +83,7 @@
         &-accordion{
             margin: 2.5rem;
 
-            @media screen and (min-width: 1280px){
+            @media screen and (min-width: 1024px){
               margin: 0;  
             }
             
