@@ -26,7 +26,7 @@
         flex-direction: column;
         align-content: center;
         align-items: center;
-        
+
         @media screen and (min-width: 1280px){
             display: flex;
             flex-direction: column;
@@ -114,7 +114,8 @@
                     width: 100%;
                     text-align: left;
                     margin-bottom: 2rem;
-                    
+                    max-height: 0;
+                    transition: max-height 0.2s ease-out;
                     & p{
                         color: $dark-grayish-blue;
                     }

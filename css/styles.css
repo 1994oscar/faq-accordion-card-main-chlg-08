@@ -28,7 +28,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10rem;
+  margin-top: 15rem;
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    margin-top: 10rem;
+  }
 }
 
 .attribution {
@@ -155,6 +160,8 @@ body {
   width: 100%;
   text-align: left;
   margin-bottom: 2rem;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
 }
 .card-faq-body-accordion-faq__panel p {
   color: hsl(240deg, 6%, 50%);
