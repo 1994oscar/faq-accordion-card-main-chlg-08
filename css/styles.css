@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  background: rgb(175, 104, 234);
+  background: linear-gradient(180deg, rgb(175, 104, 234) 0%, rgb(124, 101, 233) 73%);
+  background-color: gray;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 1.2rem;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}
+
+.attribution {
+  margin-top: 2rem;
+  width: 100%;
+  text-align: center;
+  color: hsl(238deg, 29%, 16%);
+  font-size: 1.6rem;
+  padding: 2rem;
+}
+.attribution a {
+  color: hsl(240deg, 5%, 91%);
+  text-decoration: none;
+}
+
+.card-faq {
+  width: 32.5rem;
+  height: auto;
+  background-color: hsl(240deg, 5%, 91%);
+  border-radius: 3rem;
+}
+@media screen and (min-width: 1280px) {
+  .card-faq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90rem;
+    padding: 7rem 0;
+    background-image: url("../../images/illustration-woman-online-desktop.svg"), url("../../images/bg-pattern-desktop.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-size: 43rem, 90rem;
+    background-position: top 4.5rem right 54rem, bottom -12rem right 53rem;
+  }
+}
+.card-faq-header {
+  width: 32.5rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1280px) {
+  .card-faq-header {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 40rem;
+  }
+}
+.card-faq-header__image {
+  overflow: hidden;
+  margin-top: -9rem;
+  width: 20rem;
+  height: auto;
+}
+@media screen and (min-width: 1280px) {
+  .card-faq-header__image {
+    overflow: hidden;
+    content: url("../../images/illustration-box-desktop.svg");
+    margin-right: 52rem;
+    margin-top: 4.5rem;
+  }
+}
+.card-faq-header__image-background {
+  margin-top: -5.5rem;
+  width: 20rem;
+  height: auto;
+}
+@media screen and (min-width: 1280px) {
+  .card-faq-header__image-background {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .card-faq-body {
+    width: 33rem;
+    display: flex;
+    flex-direction: column;
+    margin-right: 4rem;
+  }
+}
+.card-faq-body__title {
+  text-align: center;
+  font-size: 3rem;
+}
+@media screen and (min-width: 1280px) {
+  .card-faq-body__title {
+    text-align: left;
+  }
+}
+.card-faq-body-accordion {
+  margin: 2.5rem;
+}
+@media screen and (min-width: 1280px) {
+  .card-faq-body-accordion {
+    margin: 0;
+  }
+}
+.card-faq-body-accordion-faq {
+  border-bottom-width: 0.1rem;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(120, 120, 135, 0.5);
+}
+.card-faq-body-accordion-faq__button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  border: none;
+  text-align: left;
+  background-color: transparent;
+  color: hsl(237deg, 12%, 33%);
+  cursor: pointer;
+}
+.card-faq-body-accordion-faq__button:hover {
+  color: hsl(14deg, 88%, 65%);
+}
+.card-faq-body-accordion-faq__button::after {
+  content: url(../../images/icon-arrow-down.svg);
+  float: right;
+}
+.card-faq-body-accordion-faq__panel {
+  display: none;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.card-faq-body-accordion-faq__panel p {
+  color: hsl(240deg, 6%, 50%);
+}
+
+.panel-active {
+  display: block;
+}
+
+.button-active {
+  overflow: hidden;
+  color: hsl(238deg, 29%, 16%);
+  font-weight: 700;
+}
+.button-active::after {
+  float: right;
+  transform: rotate(180deg);
+}
+
+/*# sourceMappingURL=styles.css.map */
