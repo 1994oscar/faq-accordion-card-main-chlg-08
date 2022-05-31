@@ -13,14 +13,7 @@
        justify-content: center;
        align-items: center;
        width: 90rem;
-       padding: 7rem 0;
-
-       background-image:
-           url('../../images/illustration-woman-online-desktop.svg'),
-           url('../../images/bg-pattern-desktop.svg');
-           background-repeat: no-repeat, no-repeat;
-           background-size: 43rem, 90rem;
-           background-position: top 4.5rem right 54rem, bottom -12rem right 53rem;
+       height: 47rem;
     }
 
     &-header{
@@ -35,64 +28,104 @@
             flex-direction: column;
             align-content: center;
             align-items: center;  
-            width: 40rem; 
+            width: 45rem; 
+            height: 47rem;
+
+            background-image:
+            url('../../images/illustration-woman-online-desktop.svg'),
+            url('../../images/bg-pattern-desktop.svg');
+            background-repeat: no-repeat, no-repeat;
+            background-size: 43rem, 90rem;
+            background-position: top 4.5rem right 9.2rem, bottom -12rem right 7.5rem;
         }
 
-        &__image{
-              overflow: hidden;
+        &__image-mobile{
               margin-top: -9rem;
               width: 20rem;
               height: auto;
 
               @media screen and (min-width: 1024px){
-                overflow: hidden;
-                content: url('../../images/illustration-box-desktop.svg');
-                margin-right: 52rem;
-                margin-top: 4.5rem;
+                  display: none;
               }
         }
 
-        &__image-background{
+        &__image-bg-mobile{
             margin-top: -5.5rem;
             width: 20rem;
             height: auto;
 
             @media screen and (min-width: 1024px){
-                display: none;
+               display: none;
+            }
+        }
+
+        &__image-box-desktop{
+            display: none;
+         
+            @media screen and (min-width: 1024px){
+              display: flex;
+              margin-top: 16rem;
+              margin-right: 44.4rem;
+
+                transform: translateY(-2%);
+                animation: floater 1.8s infinite;
+                transition: ease 0.5s;
             }
         }
     }
 
     &-body{
+        
         @media screen and (min-width: 1024px){
-           width: 33rem;   
+           width: 45rem;   
+           height: 47rem;
            display: flex;
-           flex-direction: column; 
-           margin-right: 4rem;    
+           flex-direction: column;
+           align-content: center;
+           align-items: flex-start; 
         }
 
         &__title{
             text-align: center;
             font-size: 3rem;
+            color: $very-dark-desaturated-blue;
 
             @media screen and (min-width: 1024px){
-               text-align: left;    
+               text-align: left;
+               margin-top: 5rem;    
             }
         }
 
         &-accordion{
             margin: 2.5rem;
-
+            
             @media screen and (min-width: 1024px){
-              margin: 0;  
+              margin: 0;
+              width: 35rem;  
+              overflow: hidden;
             }
             
             &-faq{
                 border-bottom-width: .1rem;
                 border-bottom-style: solid;
-                border-bottom-color: rgba($dark-grayish-blue, .5);              
+                border-bottom-color: rgba($dark-grayish-blue, .5);                                
+
+                &[open]{                 
+                    .card-faq-body-accordion-faq__button{
+                        overflow: hidden;
+                        color: $very-dark-desaturated-blue;
+                        font-weight: 700;
+
+                        &::after{
+                            float: right;
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                }
 
                 &__button{
+                    list-style: none;
                     margin-top: 2rem;
                     margin-bottom: 2rem;
                     width: 100%;
@@ -101,6 +134,7 @@
                     background-color: transparent;
                     color: $very-dark-grayish-blue;
                     cursor: pointer;
+                    transition: all .1s;
 
                     &:hover{
                         color: $soft-red;
@@ -109,35 +143,20 @@
                     &::after{
                         content: url(../../images/icon-arrow-down.svg);
                         float: right;
-                    }
+                    }          
                 }
 
-                &__panel{
-                    display: none;
-                    width: 100%;
-                    text-align: left;
-                    margin-bottom: 2rem;
-                    max-height: 0;
+                &__panel{                                        
+                    margin-bottom: 2rem;                 
                     transition: max-height 0.2s ease-out;
-                    & p{
-                        color: $dark-grayish-blue;
-                    }
+                    color: $dark-grayish-blue;                  
                 }
             }
         }
     }
 }
 
-.panel-active{
-    display: block;
-}
-
-.button-active{
-    overflow: hidden;
-    color: $very-dark-desaturated-blue;
-    font-weight: 700;
-    &::after{
-        float: right;
-        transform: rotate(180deg);
-    }
+@keyframes floater {
+    0%{transform: translateY(-2%);transition: ease 0.5s;}
+    50%{transform: translateY(2%);transition: ease 0.5s;}
 }

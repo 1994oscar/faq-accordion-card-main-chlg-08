@@ -64,11 +64,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 90rem;
-    padding: 7rem 0;
-    background-image: url("../../images/illustration-woman-online-desktop.svg"), url("../../images/bg-pattern-desktop.svg");
-    background-repeat: no-repeat, no-repeat;
-    background-size: 43rem, 90rem;
-    background-position: top 4.5rem right 54rem, bottom -12rem right 53rem;
+    height: 47rem;
   }
 }
 .card-faq-header {
@@ -84,48 +80,66 @@ body {
     flex-direction: column;
     align-content: center;
     align-items: center;
-    width: 40rem;
+    width: 45rem;
+    height: 47rem;
+    background-image: url("../../images/illustration-woman-online-desktop.svg"), url("../../images/bg-pattern-desktop.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-size: 43rem, 90rem;
+    background-position: top 4.5rem right 9.2rem, bottom -12rem right 7.5rem;
   }
 }
-.card-faq-header__image {
-  overflow: hidden;
+.card-faq-header__image-mobile {
   margin-top: -9rem;
   width: 20rem;
   height: auto;
 }
 @media screen and (min-width: 1024px) {
-  .card-faq-header__image {
-    overflow: hidden;
-    content: url("../../images/illustration-box-desktop.svg");
-    margin-right: 52rem;
-    margin-top: 4.5rem;
+  .card-faq-header__image-mobile {
+    display: none;
   }
 }
-.card-faq-header__image-background {
+.card-faq-header__image-bg-mobile {
   margin-top: -5.5rem;
   width: 20rem;
   height: auto;
 }
 @media screen and (min-width: 1024px) {
-  .card-faq-header__image-background {
+  .card-faq-header__image-bg-mobile {
     display: none;
+  }
+}
+.card-faq-header__image-box-desktop {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  .card-faq-header__image-box-desktop {
+    display: flex;
+    margin-top: 16rem;
+    margin-right: 44.4rem;
+    transform: translateY(-2%);
+    animation: floater 1.8s infinite;
+    transition: ease 0.5s;
   }
 }
 @media screen and (min-width: 1024px) {
   .card-faq-body {
-    width: 33rem;
+    width: 45rem;
+    height: 47rem;
     display: flex;
     flex-direction: column;
-    margin-right: 4rem;
+    align-content: center;
+    align-items: flex-start;
   }
 }
 .card-faq-body__title {
   text-align: center;
   font-size: 3rem;
+  color: hsl(238deg, 29%, 16%);
 }
 @media screen and (min-width: 1024px) {
   .card-faq-body__title {
     text-align: left;
+    margin-top: 5rem;
   }
 }
 .card-faq-body-accordion {
@@ -134,6 +148,8 @@ body {
 @media screen and (min-width: 1024px) {
   .card-faq-body-accordion {
     margin: 0;
+    width: 35rem;
+    overflow: hidden;
   }
 }
 .card-faq-body-accordion-faq {
@@ -141,7 +157,17 @@ body {
   border-bottom-style: solid;
   border-bottom-color: rgba(120, 120, 135, 0.5);
 }
+.card-faq-body-accordion-faq[open] .card-faq-body-accordion-faq__button {
+  overflow: hidden;
+  color: hsl(238deg, 29%, 16%);
+  font-weight: 700;
+}
+.card-faq-body-accordion-faq[open] .card-faq-body-accordion-faq__button::after {
+  float: right;
+  transform: rotate(180deg);
+}
 .card-faq-body-accordion-faq__button {
+  list-style: none;
   margin-top: 2rem;
   margin-bottom: 2rem;
   width: 100%;
@@ -150,6 +176,7 @@ body {
   background-color: transparent;
   color: hsl(237deg, 12%, 33%);
   cursor: pointer;
+  transition: all 0.1s;
 }
 .card-faq-body-accordion-faq__button:hover {
   color: hsl(14deg, 88%, 65%);
@@ -159,29 +186,20 @@ body {
   float: right;
 }
 .card-faq-body-accordion-faq__panel {
-  display: none;
-  width: 100%;
-  text-align: left;
   margin-bottom: 2rem;
-  max-height: 0;
   transition: max-height 0.2s ease-out;
-}
-.card-faq-body-accordion-faq__panel p {
   color: hsl(240deg, 6%, 50%);
 }
 
-.panel-active {
-  display: block;
-}
-
-.button-active {
-  overflow: hidden;
-  color: hsl(238deg, 29%, 16%);
-  font-weight: 700;
-}
-.button-active::after {
-  float: right;
-  transform: rotate(180deg);
+@keyframes floater {
+  0% {
+    transform: translateY(-2%);
+    transition: ease 0.5s;
+  }
+  50% {
+    transform: translateY(2%);
+    transition: ease 0.5s;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
