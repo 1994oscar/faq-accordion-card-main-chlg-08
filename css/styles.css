@@ -143,13 +143,26 @@ body {
   }
 }
 .card-faq-body-accordion {
-  margin: 2.5rem;
+  margin: 1.5rem;
+  padding: 1.2rem;
+  max-height: 35rem;
+  overflow-y: scroll;
 }
 @media screen and (min-width: 1024px) {
   .card-faq-body-accordion {
     margin: 0;
     width: 35rem;
+    max-height: 50rem;
     overflow: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+  .card-faq-body-accordion::-webkit-scrollbar {
+    /*Chrome, Safari and Opera*/
+    display: none;
   }
 }
 .card-faq-body-accordion-faq {
@@ -164,6 +177,8 @@ body {
 }
 .card-faq-body-accordion-faq[open] .card-faq-body-accordion-faq__button::after {
   float: right;
+  animation-name: icon-open;
+  animation-duration: 0.5s;
   transform: rotate(180deg);
 }
 .card-faq-body-accordion-faq__button {
@@ -184,11 +199,14 @@ body {
 .card-faq-body-accordion-faq__button::after {
   content: url(../../images/icon-arrow-down.svg);
   float: right;
+  animation-name: icon-close;
+  animation-duration: 0.5s;
+  transform: rotate(0deg);
 }
 .card-faq-body-accordion-faq__panel {
   margin-bottom: 2rem;
-  transition: max-height 0.2s ease-out;
   color: hsl(240deg, 6%, 50%);
+  overflow-y: scroll;
 }
 
 @keyframes floater {
@@ -199,6 +217,36 @@ body {
   50% {
     transform: translateY(2%);
     transition: ease 0.5s;
+  }
+}
+@keyframes icon-open {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes icon-close {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.active-panel {
+  animation: open-panel 0.5s forwards;
+}
+
+@keyframes open-panel {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: 3rem;
   }
 }
 

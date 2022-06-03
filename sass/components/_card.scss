@@ -97,31 +97,45 @@
         }
 
         &-accordion{
-            margin: 2.5rem;
+            margin: 1.5rem;
+            padding: 1.2rem;
+            max-height: 35rem;
+            overflow-y: scroll;
             
             @media screen and (min-width: 1024px){
               margin: 0;
-              width: 35rem;  
+              width: 35rem; 
+              max-height: 50rem; 
               overflow: hidden;
+              overflow-y: scroll;
+
+              -ms-overflow-style: none;  /* IE and Edge */
+              scrollbar-width: none;  /* Firefox */
+
+              &::-webkit-scrollbar { /*Chrome, Safari and Opera*/
+                display: none;
+              }
             }
             
             &-faq{
                 border-bottom-width: .1rem;
                 border-bottom-style: solid;
-                border-bottom-color: rgba($dark-grayish-blue, .5);                                
-
-                &[open]{                 
+                border-bottom-color: rgba($dark-grayish-blue, .5); 
+                                             
+                &[open]{              
                     .card-faq-body-accordion-faq__button{
                         overflow: hidden;
                         color: $very-dark-desaturated-blue;
-                        font-weight: 700;
+                        font-weight: 700;                      
 
                         &::after{
                             float: right;
+                            animation-name: icon-open;
+                            animation-duration: .5s;
                             transform: rotate(180deg);
                         }
                     }
-
+       
                 }
 
                 &__button{
@@ -143,13 +157,16 @@
                     &::after{
                         content: url(../../images/icon-arrow-down.svg);
                         float: right;
+                        animation-name: icon-close;
+                        animation-duration: .5s;
+                        transform: rotate(0deg);
                     }          
                 }
 
-                &__panel{                                        
-                    margin-bottom: 2rem;                 
-                    transition: max-height 0.2s ease-out;
-                    color: $dark-grayish-blue;                  
+                &__panel{                                                       
+                    margin-bottom: 2rem;                                    
+                    color: $dark-grayish-blue;                        
+                    overflow-y:scroll;                      
                 }
             }
         }
@@ -157,6 +174,47 @@
 }
 
 @keyframes floater {
-    0%{transform: translateY(-2%);transition: ease 0.5s;}
-    50%{transform: translateY(2%);transition: ease 0.5s;}
+    0%{
+        transform: translateY(-2%);
+        transition: ease 0.5s;
+    }
+    50%{
+        transform: translateY(2%);
+        transition: ease 0.5s;
+    }
 }
+
+@keyframes icon-open {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes icon-close {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.active-panel{
+    animation: open-panel .5s forwards;
+}
+
+
+@keyframes open-panel {
+    from{
+        opacity: 0;
+        height: 0;
+    }
+
+    to{
+        opacity: 1;
+        height: 3rem;
+    }
+  }

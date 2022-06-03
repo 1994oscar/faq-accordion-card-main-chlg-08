@@ -1,22 +1,22 @@
-const acc = document.getElementsByClassName("card-faq-body-accordion-faq__button");
-let i;
+'use strict';
+const details = document.querySelectorAll('details');
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    
-    this.classList.toggle("button-active");
-    const panel = this.nextElementSibling;
+function openDetails(e){
 
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
+  const lastElement = this.lastElementChild;
+  
+  if (this.open) {
+    lastElement.classList.remove('close-panel');
+    lastElement.classList.add('active-panel'); 
+  }
+  else{
+    lastElement.classList.remove('active-panel');
+    lastElement.classList.add('close-panel');
+  }
 
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
 }
+
+details.forEach(detail => {
+  detail.addEventListener('toggle', openDetails);
+});
+
