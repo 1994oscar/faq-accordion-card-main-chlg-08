@@ -151,6 +151,7 @@ body {
 @media screen and (min-width: 1024px) {
   .card-faq-body-accordion {
     margin: 0;
+    padding: 0;
     width: 35rem;
     max-height: 50rem;
     overflow: hidden;
